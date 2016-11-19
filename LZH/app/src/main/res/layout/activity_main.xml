@@ -6,10 +6,49 @@
     android:layout_height="match_parent"
     tools:context="com.example.acer.lzh.MainActivity">
 
-    <Button
+    <RadioGroup
+        android:id="@+id/lzh_main_rg"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="故事"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="发现"
+            android:gravity="center"
 
-        android:layout_width="@dimen/x200"
-        android:layout_height="@dimen/x200"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="定制"
+            android:gravity="center"
 
-      />
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="字号"
+            android:gravity="center"
+
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="我的"
+            android:gravity="center"
+
+            android:layout_height="wrap_content" />
+    </RadioGroup>
 </RelativeLayout>
