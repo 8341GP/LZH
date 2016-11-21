@@ -17,13 +17,9 @@ import org.xutils.x;
  */
 @ContentView(R.layout.fragment_album)
 public class AlbumFragment extends Fragment {
-
-
     public AlbumFragment() {
         // Required empty public constructor
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

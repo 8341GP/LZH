@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //-------------------11-21-------------------------//
         //进行xutils注册
         x.view().inject(this);
         //获取fragment的管理器
