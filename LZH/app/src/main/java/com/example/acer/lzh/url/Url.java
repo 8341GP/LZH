@@ -5,6 +5,7 @@ package com.example.acer.lzh.url;
  */
 
 public class Url {
+    //图片的地址
     public static final String IMAGE_PATH="http://images.laozihaojia.com";
     //故事首页
     public static String getAlbumPath(){
