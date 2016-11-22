@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +48,9 @@ public class SearchFragment extends Fragment {
     @ViewInject(R.id.classify_gridView)
     private MyGridView classify_gridView;
 
+
+
+
     @ViewInject(R.id.classify_listVIew)
     private CustomListView listView;
     private List<Classify_RecyclerView_Bean.SubjectsBean> subjectBean;
@@ -65,29 +69,20 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = x.view().inject(this, inflater, container);
-
-
         initData();
-
-
         //-------------------------------------------------------------------------------------------
-
-
         //发现分类板块    GridView
-
-
         RequestParams params = new RequestParams(path);
+
 
         x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
+                Log.e("111", "onError: "+result);
 
                 Gson gson = new Gson();
-
                 final Classify_GridView_Bean gridView = gson.fromJson(result, Classify_GridView_Bean.class);
-
                 final Classify_GridView_Bean.IconsBean iconsBean = new Classify_GridView_Bean.IconsBean();
-
                 iconsBean.setLinkName("更多");
                 gridView.getIcons().add(iconsBean);
                 Classify_GridView_Adapter adapter = new Classify_GridView_Adapter(gridView.getIcons(), getActivity());
@@ -105,7 +100,7 @@ public class SearchFragment extends Fragment {
 
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
-
+                Log.e("加载失败", "onError: "+ex.toString() );
             }
 
             @Override

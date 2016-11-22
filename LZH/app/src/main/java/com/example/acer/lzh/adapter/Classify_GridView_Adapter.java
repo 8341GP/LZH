@@ -1,6 +1,7 @@
 package com.example.acer.lzh.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,8 @@ public class Classify_GridView_Adapter extends BaseAdapter{
     public Classify_GridView_Adapter(List<Classify_GridView_Bean.IconsBean> data, Context context) {
         this.data = data;
         this.context = context;
+        Log.e("111111111", "getView: "+data.size() );
+
     }
 
 
@@ -48,7 +51,7 @@ public class Classify_GridView_Adapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = null;
-
+        Log.e("111111111", "getView: "+data.size() );
         if(convertView == null){
             convertView = LayoutInflater.from(context).inflate(R.layout.item_search_gridview,parent,false);
             holder = new ViewHolder();

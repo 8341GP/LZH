@@ -153,7 +153,7 @@ public class Classify_GridView_Bean {
     public static class DiscoverItemsBean {
         private int commodityId;
         private String commodityDesc;
-        private int commodityPrice;
+        private double commodityPrice;
         private String commodityImg;
 
         public int getCommodityId() {
@@ -172,11 +172,11 @@ public class Classify_GridView_Bean {
             this.commodityDesc = commodityDesc;
         }
 
-        public int getCommodityPrice() {
+        public double getCommodityPrice() {
             return commodityPrice;
         }
 
-        public void setCommodityPrice(int commodityPrice) {
+        public void setCommodityPrice(double commodityPrice) {
             this.commodityPrice = commodityPrice;
         }
 
