@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/item_search_listView_image"
+        android:src="@mipmap/ic_launcher"
+        android:layout_width="match_parent"
+        android:layout_height="250dp" />
+    <TextView
+        android:id="@+id/item_search_listView_text1"
+        android:padding="5dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20sp"
+        android:textColor="#232323"
+        android:text="小雪时节适宜清内火6款食膳主养生"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:padding="5dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/item_search_listView_text2"
+            android:background="#DCC008"
+            android:textSize="16sp"
+            android:layout_marginLeft="10dp"
+            android:text="养生记"
+            android:textColor="#fff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="#D6D6D8"
+            android:id="@+id/item_search_listView_text3"
+            android:textSize="16sp"
+            android:layout_marginLeft="10dp"
+            android:text="2016-11-22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>

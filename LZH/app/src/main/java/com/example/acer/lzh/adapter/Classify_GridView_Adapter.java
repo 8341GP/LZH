@@ -12,6 +12,7 @@ import com.example.acer.lzh.R;
 import com.example.acer.lzh.bean.Classify_GridView_Bean;
 import com.example.acer.lzh.url.Url;
 
+import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 import java.util.List;
@@ -51,8 +52,6 @@ public class Classify_GridView_Adapter extends BaseAdapter{
         if(convertView == null){
             convertView = LayoutInflater.from(context).inflate(R.layout.item_search_gridview,parent,false);
             holder = new ViewHolder();
-            holder.imageView = (ImageView) convertView.findViewById(R.id.item_search_gridView_image);
-            holder.textView  = (TextView) convertView.findViewById(R.id.item_search_gridView_text);
             x.view().inject(holder,convertView);
 
             convertView.setTag(holder);
@@ -74,7 +73,9 @@ public class Classify_GridView_Adapter extends BaseAdapter{
         return convertView;
     }
     class ViewHolder{
+        @ViewInject(R.id.item_search_gridView_image)
         ImageView imageView;
+        @ViewInject(R.id.item_search_gridView_text)
         TextView textView;
     }
 }
