@@ -45,8 +45,8 @@ public class Url {
         return   path;
     }
     //发现分类的跳转
-    public static String getSearchHot_Path(String linkType,String linkId,String pageIndex){
-        String path ="http://api.laozihaojia.com/icon/search.do?linkType="+linkType+"&pageNum=20&pageIndex="+pageIndex+"&linkId="+linkId;
+    public static String getSearchHot_Path(String linkType,String linkId,String pageIndex,String linkName){
+        String path ="http://api.laozihaojia.com/icon/search.do?linkType="+linkType+"&pageNum=20&pageIndex="+pageIndex+"&linkId="+linkId+"&linkName"+linkName;
         return   path;
     }
     //发现listview

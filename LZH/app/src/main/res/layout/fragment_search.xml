@@ -42,14 +42,18 @@
             <com.example.acer.lzh.wedget.MyGridView
                 android:id="@+id/classify_gridView"
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
+                android:layout_height="wrap_content"
                 android:numColumns="5" />
-
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="#DCDCDC"
+                />
             <android.support.v7.widget.RecyclerView
 
                 android:id="@+id/classify_recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="85dp"/>
+                android:layout_height="130dp"/>
             <com.example.acer.lzh.wedget.CustomListView
 
                 android:id="@+id/classify_listVIew"
