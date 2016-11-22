@@ -22,7 +22,7 @@ import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 /**
- * 页面---发现
+ * 页面---发现ssss
  */
 @ContentView(R.layout.fragment_search)
 public class SearchFragment extends Fragment {
