@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ImageView;
 
+import com.example.acer.lzh.adapter.Classify_Activity_GridView_Adapter;
 import com.example.acer.lzh.adapter.Classify_Activity_RecyclerView_Adapter;
 import com.example.acer.lzh.bean.Classify_Activity_RecyclerView_Bean;
 import com.example.acer.lzh.url.Url;
@@ -53,15 +54,18 @@ public class ClassifyActivity extends AppCompatActivity {
 
         RequestParams params = new RequestParams(url);
 
+
+    //------------------------------------------------------------------------------------------------
+    //    recyclerView的展示
+
         x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
                 Gson gson = new Gson();
                 Classify_Activity_RecyclerView_Bean activity_recyclerView_bean = gson.fromJson(result,Classify_Activity_RecyclerView_Bean.class);
 
-
+                //顶部图片的展示
                 Picasso.with(ClassifyActivity.this).load(Url.IMAGE_PATH+activity_recyclerView_bean.getDetail().getImg()).into(imageView);
-
 
                 activity_recyclerView_beenlist = new ArrayList<>();
                 activity_recyclerView_beenlist.addAll(activity_recyclerView_bean.getBrands());
@@ -90,33 +94,36 @@ public class ClassifyActivity extends AppCompatActivity {
             }
         });
 
-//        RequestParams params1 = new RequestParams(url);
-//        x.http().get(params1, new Callback.CommonCallback<String>() {
-//            @Override
-//            public void onSuccess(String result) {
-////                Gson gson = new Gson();
-////                Classify_Activity_RecyclerView_Bean listViewBean = gson.fromJson(result,Classify_Activity_RecyclerView_Bean.class);
-////                commoditys_list = new ArrayList<>();
-////                commoditys_list.addAll(listViewBean.getCommoditys());
-////                Classify_Activity_GridView_Adapter adapter = new Classify_Activity_GridView_Adapter(commoditys_list,ClassifyActivity.this);
-////                gridView.setAdapter(adapter);
-//            }
-//
-//            @Override
-//            public void onError(Throwable ex, boolean isOnCallback) {
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(CancelledException cex) {
-//
-//            }
-//
-//            @Override
-//            public void onFinished() {
-//
-//            }
-//        });
+
+        //GridView的展示
+        RequestParams params1 = new RequestParams(url);
+        x.http().get(params1, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Gson gson = new Gson();
+                Classify_Activity_RecyclerView_Bean listViewBean = gson.fromJson(result,Classify_Activity_RecyclerView_Bean.class);
+                commoditys_list = new ArrayList<>();
+                commoditys_list.addAll(listViewBean.getCommoditys());
+                Classify_Activity_GridView_Adapter adapter = new Classify_Activity_GridView_Adapter(commoditys_list,ClassifyActivity.this);
+                gridView.setAdapter(adapter);
+
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
 
 
     }

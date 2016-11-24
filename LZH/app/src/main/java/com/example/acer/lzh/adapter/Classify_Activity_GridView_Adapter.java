@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.example.acer.lzh.R;
 import com.example.acer.lzh.bean.Classify_Activity_RecyclerView_Bean;
-import com.example.acer.lzh.url.Url;
 
 import org.xutils.x;
 
@@ -66,9 +65,11 @@ public class Classify_Activity_GridView_Adapter extends BaseAdapter{
 
         holder.textView1.setText(data.get(position).getCommodityTitle());
         holder.textView2.setText("￥"+data.get(position).getPrice());
-        holder.textView3.setText(data.get(position).getCollect());
+        holder.textView3.setText(data.get(position).getCollect()+"");
 
-        x.image().bind(holder.imageView, Url.IMAGE_PATH+data.get(position).getBannerImg());
+        x.image().bind(holder.imageView,data.get(position).getBannerImg());
+
+//        Log.e("AAAAAAAA",data.get(position).getBannerImg());
 
         return convertView;
     }

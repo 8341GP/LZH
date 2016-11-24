@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.acer.lzh.Search_ListView_Activity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@mipmap/ic_launcher"
+                android:id="@+id/search_listView_image"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+            <TextView
+                android:text="一抹优雅的幽蓝"
+                android:id="@+id/search_listView_text1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="一抹优雅的幽蓝"
+                android:id="@+id/search_listView_text2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.example.acer.lzh.wedget.CustomListView
+                android:id="@+id/search_listView_listView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+
+
+</LinearLayout>

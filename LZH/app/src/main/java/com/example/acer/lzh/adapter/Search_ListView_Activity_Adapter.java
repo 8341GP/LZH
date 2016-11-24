@@ -10,29 +10,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.acer.lzh.R;
-import com.example.acer.lzh.bean.Classify_GridView_Bean;
+import com.example.acer.lzh.bean.Search_Activity_ListView_Bean;
 import com.example.acer.lzh.url.Url;
-
-import org.xutils.view.annotation.ViewInject;
-import org.xutils.x;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 /**
- * Created by --Rain-- on 2016/11/21.
+ * Created by --Rain-- on 2016/11/24.
  */
-public class Classify_GridView_Adapter extends BaseAdapter{
-    private List<Classify_GridView_Bean.IconsBean> data;
+public class Search_ListView_Activity_Adapter extends BaseAdapter{
+
+    private List<Search_Activity_ListView_Bean.DetailsBean> data;
     private Context context;
 
-    public Classify_GridView_Adapter(List<Classify_GridView_Bean.IconsBean> data, Context context) {
-        Log.e("GridView_Adapter", "1 " );
+    public Search_ListView_Activity_Adapter(List<Search_Activity_ListView_Bean.DetailsBean> data, Context context) {
         this.data = data;
         this.context = context;
-        Log.e("111111111", "getView: "+data.size() );
-
     }
-
 
     @Override
     public int getCount() {
@@ -52,23 +47,22 @@ public class Classify_GridView_Adapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = null;
-        Log.e("111111111", "getView: "+data.size() );
         if(convertView == null){
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_search_gridview,parent,false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_search_activity_listview,parent,false);
             holder = new ViewHolder();
-            x.view().inject(holder,convertView);
-
+            holder.imageView = (ImageView) convertView.findViewById(R.id.item_search_activity_listView_image);
+            holder.textView = (TextView) convertView.findViewById(R.id.item_search_activity_listView_text);
             convertView.setTag(holder);
         }else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.textView.setText(data.get(position).getLinkName());
+        holder.textView.setText(data.get(position).getContent());
 
+        if(data.get(position).getImgUrl()!=null){
 
-        if(data.get(position).getIconImg()!=null){
-            x.image().bind(holder.imageView, Url.IMAGE_PATH+data.get(position).getIconImg());
-        }else {
-
+            Picasso.with(context).load(Url.IMAGE_PATH+data.get(position).getImgUrl()).into(holder.imageView);
+//            Glide.with(context).load(Url.IMAGE_PATH+data.get(position).getImgUrl()).asGif().into(holder.imageView);
+            Log.e("EEEEEEE",Url.IMAGE_PATH+data.get(position).getImgUrl());
         }
 
 
@@ -77,9 +71,7 @@ public class Classify_GridView_Adapter extends BaseAdapter{
         return convertView;
     }
     class ViewHolder{
-        @ViewInject(R.id.item_search_gridView_image)
         ImageView imageView;
-        @ViewInject(R.id.item_search_gridView_text)
         TextView textView;
     }
 }

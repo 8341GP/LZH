@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 
 import com.example.acer.lzh.ClassifyActivity;
 import com.example.acer.lzh.R;
+import com.example.acer.lzh.Search_ListView_Activity;
 import com.example.acer.lzh.adapter.Classify_GridView_Adapter;
 import com.example.acer.lzh.adapter.Classify_ListView_Adapter;
 import com.example.acer.lzh.adapter.Classify_RecylerView_Adapter;
@@ -137,6 +138,20 @@ public class SearchFragment extends Fragment {
                 setRecycleViewData(recyclerView_bean);
 
                 setListViewData(recyclerView_bean);
+
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Intent intent = new Intent(getActivity(), Search_ListView_Activity.class);
+
+                        intent.putExtra("id",recyclerView_bean.getSubjects().get(position).getSubjectId());
+
+                        Log.e("CCCCCCC",recyclerView_bean.getSubjects().get(position).getSubjectId()+"");
+
+
+                        startActivity(intent);
+                    }
+                });
             }
 
             @Override
@@ -161,6 +176,8 @@ public class SearchFragment extends Fragment {
         subjectBean.addAll(recyclerBean.getSubjects());
         listView_Adapter = new Classify_ListView_Adapter(getActivity(), subjectBean);
         listView.setAdapter(listView_Adapter);
+
+
     }
 
     private void setRecycleViewData(Classify_RecyclerView_Bean recylerBean) {

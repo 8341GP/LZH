@@ -18,8 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AlbumDetailActivity"></activity>
-        <activity android:name=".ClassifyActivity"></activity>
+        <activity android:name=".AlbumDetailActivity" />
+        <activity android:name=".ClassifyActivity" />
+        <activity android:name=".Search_ListView_Activity"></activity>
     </application>
 
 </manifest>
