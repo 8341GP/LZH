@@ -13,6 +13,7 @@
             android:id="@+id/item_album_viewpager_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:transitionName="transitionImg"
             />
         <LinearLayout
             android:layout_alignParentBottom="true"
@@ -21,7 +22,7 @@
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:padding="20dp"
-            android:background="@mipmap/album_bg_2"
+            android:background="#e1e0e0"
             android:layout_height="80dp">
             <TextView
                 android:textSize="18sp"

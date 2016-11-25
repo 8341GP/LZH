@@ -13,9 +13,18 @@
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             >
+            <ImageView
+                android:clickable="true"
+                android:id="@+id/item_album_detail_back"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/back_icon"
+                android:transitionName="transitionImg"
+                />
             <ImageView
                 android:id="@+id/item_album_detail_mianimage"
                 android:layout_width="match_parent"

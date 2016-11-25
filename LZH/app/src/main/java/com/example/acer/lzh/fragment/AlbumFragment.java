@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.acer.lzh.AlbumDetailActivity;
 import com.example.acer.lzh.R;
@@ -18,6 +19,7 @@ import com.example.acer.lzh.bean.Album_Bean;
 import com.example.acer.lzh.transform.DepthPageTransformer;
 import com.example.acer.lzh.url.Url;
 import com.google.gson.Gson;
+import com.kogitune.activity_transition.ActivityTransitionLauncher;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -58,7 +60,7 @@ public class AlbumFragment extends Fragment {
         initAdapter();
 //      这个值主要负责两边控件与中间控件的距离
         viewPager.setPageMargin(-130);
-        viewPager.setOffscreenPageLimit(3);
+        viewPager.setOffscreenPageLimit(9);
         //设置缩放动画
         viewPager.setPageTransformer(false, new DepthPageTransformer());
         setViewPagerListener();
@@ -69,6 +71,9 @@ public class AlbumFragment extends Fragment {
         viewPager.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                int position = viewPager.getCurrentItem();
+                View view = viewPager.getChildAt(position);
+
                 switch (event.getAction()){
                     case MotionEvent.ACTION_DOWN:
                         //获取手指落下的坐标并保存
@@ -80,11 +85,22 @@ public class AlbumFragment extends Fragment {
                         lastY = (int)(event.getY());
                         offsetX=rawX-lastX;
                         offsetY=rawY-lastY;
-                        if (offsetX<5 && offsetY<5 &&v instanceof ViewPager){
-                            int position = viewPager.getCurrentItem();
+                        if (offsetX<0.1 && offsetY<0.1 &&v instanceof ViewPager &&view.getTag().equals(position)){
+                            ImageView image = (ImageView) view.findViewWithTag(data.get(position).getMainImg());
                             Intent intent = new Intent(getActivity(), AlbumDetailActivity.class);
                             intent.putExtra("id",data.get(position).getAlbumId());
-                            startActivity(intent);
+//                            startActivity(intent);
+
+                         ActivityTransitionLauncher.with(getActivity()).from(image).launch(intent);
+
+
+
+//                            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(getActivity(),image,"transitionImg").toBundle());
+//                            ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
+//                                    getActivity(), image, "transitionImg");
+//                            // ActivityCompat是android支持库中用来适应不同android版本的
+//                            ActivityCompat.startActivity(getActivity(), intent, activityOptions.toBundle());
+
                         }
                         break;
                 }

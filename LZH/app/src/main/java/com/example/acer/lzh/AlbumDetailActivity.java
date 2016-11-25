@@ -3,7 +3,10 @@ package com.example.acer.lzh;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.transition.Explode;
 import android.util.Log;
+import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,6 +28,9 @@ import java.util.List;
 
 @ContentView(R.layout.activity_album_detail)
 public class AlbumDetailActivity extends AppCompatActivity {
+    @ViewInject(R.id.item_album_detail_back)
+    private ImageView back;
+
     @ViewInject(R.id.item_album_detail_mianimage)
     private ImageView mainImage;
     @ViewInject(R.id.item_album_detail_albumTitle)
@@ -39,11 +45,21 @@ public class AlbumDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+        getWindow().setExitTransition(new Explode());
         x.view().inject(this);
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         int  id = intent.getIntExtra("id",0);
         initData();
         getDataFromInterner(id+"");
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(AlbumDetailActivity.this,MainActivity.class);
+                startActivity(intent1);
+            }
+        });
+//        getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void initData() {
@@ -79,7 +95,7 @@ public class AlbumDetailActivity extends AppCompatActivity {
     }
     //更新ui
     private void upDataUI(Album_Detail_Bean album_detail_bean) {
-        setImage(Url.IMAGE_PATH+album_detail_bean.getAlbum().getMainImg(),mainImage);
+//        setImage(Url.IMAGE_PATH+album_detail_bean.getAlbum().getMainImg(),mainImage);
         title.setText(album_detail_bean.getAlbum().getAlbumTitle());
         subTitle.setText(album_detail_bean.getAlbum().getAlbumSubTitle());
 

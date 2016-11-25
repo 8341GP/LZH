@@ -68,8 +68,8 @@ public class Url {
     ///////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////
     // 定制首页
-    public static String getCrowdfundingPath(){
-        String path ="http://api.laozihaojia.com/crowdfunding/list.do?pageIndex=1&pageNum=2&_=1479478865286";
+    public static String getCrowdfundingPath(int index){
+        String path ="http://api.laozihaojia.com/crowdfunding/list.do?pageIndex="+index+"&pageNum=2&_=1479478865286";
         return   path;
     }
     //定制跳转

@@ -27,6 +27,7 @@ public class Album_ViewPager_Adapter extends PagerAdapter{
     private Context context;
     private List<Album_Bean.AlbumsBean> data ;
 
+
     public Album_ViewPager_Adapter(Context context, List<Album_Bean.AlbumsBean> data) {
         this.context = context;
         this.data = data;
@@ -44,7 +45,7 @@ public class Album_ViewPager_Adapter extends PagerAdapter{
     }
 
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
+    public Object instantiateItem(final ViewGroup container, final int position) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_main_viewpager,container,false);
         AblumViewPagerViewHolder holder = null;
         if (holder ==null){
@@ -52,10 +53,12 @@ public class Album_ViewPager_Adapter extends PagerAdapter{
         }
         //注入view
         x.view().inject(holder,view);
-        holder.RelativeLayout.setTag(position);
+        view.setTag(position);
+        holder.mainImg.setTag(data.get(position).getMainImg());
         initUI(position,holder);
         view.setPadding(80, 80, 80, 80);
         container.addView(view);
+
         return view;
     }
 

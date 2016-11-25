@@ -5,7 +5,7 @@ android {
     buildToolsVersion "24.0.2"
     defaultConfig {
         applicationId "com.example.acer.lzh"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -33,4 +33,7 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.android.support:design:25.0.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.kogitune:pre-lollipop-activity-transition:1.0.0'
+    compile 'com.android.support:design:25.0.0'
+    compile project(':pullToRefresh_Library')
 }

@@ -5,12 +5,11 @@
     tools:context="com.example.acer.lzh.fragment.BrandFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <com.example.acer.lzh.wedget.CustomShadowView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:background="@mipmap/ic_launcher"
-        android:padding="2dp"
-        android:scaleType="fitXY"
-        />
+        <com.example.acer.lzh.wedget.GalleryFlow
+            android:id="@+id/lzh_brand_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layoutDirection="inherit"
+            ></com.example.acer.lzh.wedget.GalleryFlow>
 
 </FrameLayout>
