@@ -20,7 +20,9 @@
         </activity>
         <activity android:name=".AlbumDetailActivity" />
         <activity android:name=".ClassifyActivity" />
-        <activity android:name=".Search_ListView_Activity"></activity>
+        <activity android:name=".Search_ListView_Activity" />
+        <activity android:name=".CommodityBuyActivity" />
+        <activity android:name=".SaveActivity"></activity>
     </application>
 
 </manifest>

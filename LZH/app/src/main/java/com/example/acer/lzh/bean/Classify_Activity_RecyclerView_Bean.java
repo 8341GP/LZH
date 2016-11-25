@@ -146,11 +146,18 @@ public class Classify_Activity_RecyclerView_Bean {
     public static class CommoditysBean {
         private int source;
         private int brandId;
-        private double price;
+        private String price;
         private int collect;
-        private int commodityId;
+        private String commodityId;
         private String bannerImg;
         private String commodityTitle;
+
+        public CommoditysBean(String price, String bannerImg, String commodityId, String commodityTitle) {
+            this.price = price;
+            this.bannerImg = bannerImg;
+            this.commodityId = commodityId;
+            this.commodityTitle = commodityTitle;
+        }
 
         public int getSource() {
             return source;
@@ -168,11 +175,11 @@ public class Classify_Activity_RecyclerView_Bean {
             this.brandId = brandId;
         }
 
-        public double getPrice() {
+        public String getPrice() {
             return price;
         }
 
-        public void setPrice(double price) {
+        public void setPrice(String price) {
             this.price = price;
         }
 
@@ -184,11 +191,11 @@ public class Classify_Activity_RecyclerView_Bean {
             this.collect = collect;
         }
 
-        public int getCommodityId() {
+        public String getCommodityId() {
             return commodityId;
         }
 
-        public void setCommodityId(int commodityId) {
+        public void setCommodityId(String commodityId) {
             this.commodityId = commodityId;
         }
 

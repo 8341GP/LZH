@@ -18,13 +18,13 @@ import java.util.List;
 /**
  * Created by --Rain-- on 2016/11/22.
  */
-public class Classify_Activity_GridView_Adapter extends BaseAdapter{
+public class Classify_Activity_GridView_Adapter01 extends BaseAdapter{
 
     private List<Classify_Activity_RecyclerView_Bean.CommoditysBean> data;
     private Context context;
     private boolean isSave = false;
 
-    public Classify_Activity_GridView_Adapter(List<Classify_Activity_RecyclerView_Bean.CommoditysBean> data, Context context) {
+    public Classify_Activity_GridView_Adapter01(List<Classify_Activity_RecyclerView_Bean.CommoditysBean> data, Context context) {
         this.data = data;
         this.context = context;
     }

@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 
 import com.example.acer.lzh.adapter.Classify_Activity_GridView_Adapter;
@@ -101,11 +103,19 @@ public class ClassifyActivity extends AppCompatActivity {
             @Override
             public void onSuccess(String result) {
                 Gson gson = new Gson();
-                Classify_Activity_RecyclerView_Bean listViewBean = gson.fromJson(result,Classify_Activity_RecyclerView_Bean.class);
+                final Classify_Activity_RecyclerView_Bean listViewBean = gson.fromJson(result,Classify_Activity_RecyclerView_Bean.class);
                 commoditys_list = new ArrayList<>();
                 commoditys_list.addAll(listViewBean.getCommoditys());
                 Classify_Activity_GridView_Adapter adapter = new Classify_Activity_GridView_Adapter(commoditys_list,ClassifyActivity.this);
                 gridView.setAdapter(adapter);
+                gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Intent intent1 = new Intent(ClassifyActivity.this,CommodityBuyActivity.class);
+                        intent1.putExtra("id",listViewBean.getCommoditys().get(position).getCommodityId());
+                        startActivity(intent1);
+                    }
+                });
 
             }
 
